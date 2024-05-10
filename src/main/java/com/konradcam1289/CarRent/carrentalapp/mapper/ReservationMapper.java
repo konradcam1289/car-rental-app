@@ -1,21 +1,24 @@
 package com.konradcam1289.CarRent.carrentalapp.mapper;
 
-import com.konradcam1289.CarRent.carrentalapp.dto.RegistrationDto;
+import com.konradcam1289.CarRent.carrentalapp.dto.ReservationDto;
 import com.konradcam1289.CarRent.carrentalapp.entity.Reservation;
 
+
 public class ReservationMapper {
-    public static RegistrationDto mapToReservationDto(Reservation reservation){
-        return RegistrationDto.builder()
-                .ID(reservation.getID())
+    //convert Reservation entity to reservationDto
+    public static ReservationDto mapToReservationDto(Reservation reservation) {
+        return ReservationDto.builder()
+                .id(reservation.getId())
                 .startDate(reservation.getStartDate())
                 .endDate(reservation.getEndDate())
                 .totalCost(reservation.getTotalCost())
                 .build();
     }
 
-    public static Reservation mapToReservation(RegistrationDto reservationDto){
+    //convert ReservationDto  to reservation entity
+    public static Reservation mapToReservation(ReservationDto reservationDto) {
         return Reservation.builder()
-                .ID(reservationDto.getID())
+                .id(reservationDto.getId())
                 .startDate(reservationDto.getStartDate())
                 .endDate(reservationDto.getEndDate())
                 .totalCost(reservationDto.getTotalCost())
